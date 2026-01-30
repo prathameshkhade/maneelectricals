@@ -26,7 +26,7 @@ const HeroSection = () => {
         });
 
         const split = SplitText.create(titleRef.current, {
-            type: 'chars, lines',
+            type: 'chars, words, lines',
             mask: 'lines',
             autoSplit: true,
         });
@@ -35,35 +35,37 @@ const HeroSection = () => {
         const timeline = gsap.timeline();   
         timeline
             .from(split.chars, {
-                y: 200,
+                y: 150,
                 opacity: 0,
                 stagger: 0.1,
+                duration: 1,
+                ease: 'power4.inOut',
                 onComplete: () => split.revert()
             })
             .from(bulbRef.current.children, {
                 duration: 2.2,
-                y: 200,
+                rotate: 'random(-180, 180)',
+                y: 'random(180, 220)',
                 opacity: 0,
                 ease: "power4.inOut",
                 stagger: 0.13
-            }, '0')
+            }, '-0.25')
             
         const parallax = gsap.timeline({
             scrollTrigger: {
                 trigger: bulbRef.current,
                 start: 'top top',
                 end: 'bottom top',
-                // scrub: 1,
+                scrub: 1,
             }
         });
 
         parallax
             .to(bulbRef.current.children, {
                 rotate: 'random(-180, 180)',
-                translateZ: 200,
                 duration: 1,
                 stagger: 0.02,
-                ease: "sine.out"
+                ease: "sine.inOut",
             });
     }, [])
 
@@ -84,17 +86,17 @@ const HeroSection = () => {
                 </div>
 
                 {/* magenta */}
-                <div data-speed='0.91' data-lag="0.35" className="absolute bottom-12 right-32">
+                <div data-speed='0.94' data-lag="0.35" className="absolute bottom-12 right-32">
                     <Bulb color={Colors.magenta} width={400} height={400} rotation={-57} />
                 </div>
 
                 {/* green */}
-                <div data-speed='0.77' data-lag="0.35" className="absolute bottom-10 left-20">
+                <div data-speed='1.02' data-lag="0.35" className="absolute bottom-10 left-20">
                     <Bulb color={Colors.green} width={357} height={357} rotation={56} />
                 </div>
 
                 {/* blue */}
-                <div data-speed='0.86' data-lag="0.35" className="absolute -bottom-10 left-120">
+                <div data-speed='0.96' data-lag="0.25" className="absolute -bottom-10 left-120">
                     <Bulb color={Colors.blue} width={340} height={340} rotation={23} />
                 </div>
 
@@ -105,7 +107,7 @@ const HeroSection = () => {
             </div>
 
             <div className="w-full h-screen absolute flex flex-col items-center justify-center z-0">
-                <h1 data-speed='0.7' ref={titleRef} className='text-7xl text-white font-bold'>We Light Up <br /> Your World!</h1>
+                <h1 data-speed='0.68' ref={titleRef} className='text-7xl text-white font-bold'>We Light Up <br /> Your World!</h1>
             </div>
 
         </section>
