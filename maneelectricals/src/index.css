@@ -5,4 +5,16 @@ body {
   padding: 0;
 
   background-color: black;
+  
+  color: white;
+}
+
+@theme {
+  --color-Red = #ff0000;
+  --color-Yellow = #FFEB01;
+  --color-Cyan = #00FFFF;
+  --color-Magenta = #FF00FF;
+  --color-Green = #00FF00;
+  --color-Blue = #0D00FF;
+  --color-Indigo = #FF0000;
 }
