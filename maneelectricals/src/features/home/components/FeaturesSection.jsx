@@ -84,7 +84,7 @@ const FeaturesSection = () => {
                         return (
                             <div 
                                 key={i}
-                                // style={{outlineColor:feature.color}} 
+                                style={{outlineColor:feature.color}} 
                                 className="bg-white/25 shrink-0 w-[30vw] rounded-[3vw] py-10 px-8 flex flex-col gap-6 outline-2"
                             >
                                 <div className="w-16 h-16 bg-white/50 flex items-center p-3 rounded-[2vw]">
