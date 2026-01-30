@@ -61,12 +61,10 @@ const features = [
 const FeaturesSection = () => {
     return (
         <section className='w-full h-screen flex flex-col items-center justify-around'>
-            
-            {/* Heading */}
             <section className="flex-1 text-center m-16">
                 <h2 className="text-[10vh] font-bold">
                     <span className="">Power Your </span>
-                    <span  className="bg-Magenta">Imagination</span>
+                    <span style={{ color: Colors.magenta }}>Imagination</span>
                 </h2>
                 <p className="text-white/90 font-bold text-[3vh] max-w-2xl mx-auto">
                     From tiny LED bulbs to complete electrical installations — 
@@ -74,7 +72,7 @@ const FeaturesSection = () => {
                 </p>
             </section>
 
-            {/* Cards */}
+                        {/* Cards */}
             <section className="flex-3 w-full overflow-x-auto flex items-center">
                 <div className="flex gap-16 w-max mx-[12vw]">
                 {
