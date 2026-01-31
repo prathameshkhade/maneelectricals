@@ -6,8 +6,7 @@ import { useGSAP } from '@gsap/react';
 import { SplitText, ScrollSmoother, ScrollTrigger } from 'gsap/all';
 
 import Bulb from '../../../components/common/Bulb';
-
-import { Colors } from '../../../config/theme/colors/colors';
+import Colors from '../../../config/theme/colors/colors';
 
 const HeroSection = () => {
     const bulbRef = useRef(null);

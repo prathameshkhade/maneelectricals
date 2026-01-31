@@ -1,4 +1,4 @@
-export class Colors {
+class Colors {
     static red = '#ff0000'
     static yellow = '#FFEB01'
     static cyan = '#00FFFF'
@@ -7,3 +7,5 @@ export class Colors {
     static blue = '#0D00FF'
     static indigo = '#FF0000'
 }
+
+export default Colors;
