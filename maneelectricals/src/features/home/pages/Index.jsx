@@ -3,6 +3,7 @@ import React, { useRef } from 'react'
 import HeroSection from '../components/HeroSection';
 import FeaturesSection from '../components/FeaturesSection';
 import TaglineSection from '../components/TaglineSection';
+import Footer from '../components/Footer';
 
 export const Index = () => {
     return (
@@ -10,6 +11,7 @@ export const Index = () => {
             <HeroSection />
             <FeaturesSection />
             <TaglineSection />
+            <Footer />
         </main>
     );
 }

@@ -5,7 +5,7 @@ const TaglineSection = () => {
     const taglinesRef = useRef(null);
 
     return (
-        <section ref={taglinesRef} className="relative w-full h-screen flex flex-col items-center justify-center text-[7.6vw] font-bold">
+        <section ref={taglinesRef} className="relative w-full h-screen flex flex-col items-center justify-center text-[7vw] font-bold">
             <div>
                 <span>POWERING YOUR </span>
                 <span style={{color : Colors.yellow}}>DREAMS</span>
