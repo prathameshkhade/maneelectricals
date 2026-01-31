@@ -80,17 +80,11 @@ const FeaturesSection = () => {
                         const Icon = feature.icon;
 
                         return (
-                            <div 
+                            <Card 
                                 key={i}
-                                style={{outlineColor:feature.color}} 
-                                className="bg-white/25 shrink-0 w-[30vw] rounded-[3vw] py-10 px-8 flex flex-col gap-6 outline-2"
-                            >
-                                <div className="w-16 h-16 bg-white/50 flex items-center p-3 rounded-[2vw]">
-                                    <Icon width={60} height={60} />
-                                </div>
-                                <p className="text-[2.5vw] font-bold">{feature.title}</p>
-                                <p className="text-[1.3vw]">{feature.description}</p>
-                            </div>
+                                feature={feature}
+                                index={i}
+                            />
                         );
                     })
                 }
