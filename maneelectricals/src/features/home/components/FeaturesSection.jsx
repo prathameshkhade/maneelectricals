@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Cable, Fan, Lightbulb, ToggleRight } from 'lucide-react';
 
-import { Colors } from '../../../config/theme/colors/colors';
+import Colors from '../../../config/theme/colors/colors';
 import Card from './Card';
 
 const features = [
