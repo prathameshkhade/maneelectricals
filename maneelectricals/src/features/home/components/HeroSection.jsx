@@ -69,7 +69,7 @@ const HeroSection = () => {
     }, [])
 
     return (
-        <section className='w-full h-screen relative flex'>
+        <section className='w-full relative flex'>
 
             {/* Bulbs */}
             <div ref={bulbRef} className="w-full h-screen relative overflow-hidden z-10">
