@@ -1,9 +1,11 @@
-import React from 'react'
-
+import React, { useRef } from 'react'
 import { Cable, Fan, Lightbulb, ToggleRight } from 'lucide-react';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
 
 import Colors from '../../../config/theme/colors/colors';
 import Card from './Card';
+import { SplitText } from 'gsap/all';
 
 const features = [
     {
@@ -59,38 +61,77 @@ const features = [
 ];
 
 const FeaturesSection = () => {
-    return (
-        <section className='w-full h-screen flex flex-col items-center justify-around'>
-            <section className="flex-1 text-center m-16">
-                <h2 className="text-[10vh] font-bold">
-                    <span className="">Power Your </span>
-                    <span style={{ color: Colors.magenta }}>Imagination</span>
-                </h2>
-                <p className="text-white/90 font-bold text-[3vh] max-w-2xl mx-auto">
-                    From tiny LED bulbs to complete electrical installations — 
-                    we've got everything to electrify your vision.
-                </p>
-            </section>
+    const cardRef = useRef(null);
+    const mainRef = useRef(null);
 
-                        {/* Cards */}
-            <section className="flex-3 w-full overflow-x-auto flex items-center">
-                <div className="flex gap-16 w-max mx-[12vw]">
-                {
-                    features.map((feature, i) => {
-                        const Icon = feature.icon;
+    useGSAP(() => {
+        // horizontal scroll
+        gsap.to(cardRef.current, {
+            x: () => -cardRef.current.scrollWidth + window.innerWidth / 2,
+            duration: 2,
+            ease: 'power1.out',
+            stagger: 1,
+            scrub: 1,
+            scrollTrigger: {
+                trigger: cardRef.current,
+                start: 'top center',
+                end: () => "+=" + (cardRef.current.scrollWidth / 3),
+                pin: mainRef.current,
+                scrub: 0.75,
+                invalidateOnRefresh: true
+            }
+        })
 
-                        return (
-                            <Card 
-                                key={i}
-                                feature={feature}
-                                index={i}
-                            />
-                        );
-                    })
+        // Cards comming from left animation
+        document.querySelectorAll('#card').forEach((card) => {
+            gsap.from(card, {
+                x: 300,
+                duration: 1,
+                ease: 'sine.out',
+                opacity: 0,
+                scrub: 0.75,
+                scrollTrigger: {
+                    trigger: card,
+                    start: '-=75 center',
+                    end: 'top bottom+100',
+                    toggleActions: 'play none none reverse',
+                    invalidateOnRefresh: true,
                 }
-                </div>
-            </section>
+            })
+        })
+    });
 
+    return (
+        <section className='w-full pt-[15vh] pb-[12vh]'>
+            <div ref={mainRef}>
+                <div className=" text-center m-16">
+                    <h2 className="text-[10vh] font-bold">
+                        <span  className="">Power Your </span>
+                        <span style={{ color: Colors.magenta }}>Imagination</span>
+                    </h2>
+                    <p className="text-white/90 font-bold text-[3vh] max-w-2xl mx-auto">
+                        From tiny LED bulbs to complete electrical installations — 
+                        we've got everything to electrify your vision.
+                    </p>
+                </div>
+
+                {/* Cards */}
+                <div id='horizontal-section' className=" w-full overflow-x-hidden flex items-center py-4">
+                    <div ref={cardRef} className="flex gap-16 w-max mx-[26vw]">
+                    {
+                        features.map(
+                            (feature, i) => <div id='card'>
+                                <Card
+                                    key={i}
+                                    feature={feature}
+                                    index={i}
+                                /> 
+                            </div>
+                        )
+                    }
+                    </div>
+                </div>
+            </div>
         </section>
     )
 }

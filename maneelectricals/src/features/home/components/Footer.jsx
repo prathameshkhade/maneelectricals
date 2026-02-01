@@ -1,4 +1,3 @@
-import { Superscript } from "lucide-react";
 import { PhoneCall, MapPinIcon, MailIcon } from "lucide-react";
 import Lottie from 'lottie-react';
 import heartAnimation from '../../../assets/animations/heart.json';
