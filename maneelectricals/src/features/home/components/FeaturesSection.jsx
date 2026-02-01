@@ -5,7 +5,6 @@ import { useGSAP } from '@gsap/react';
 
 import Colors from '../../../config/theme/colors/colors';
 import Card from './Card';
-import { SplitText } from 'gsap/all';
 
 const features = [
     {
@@ -105,10 +104,10 @@ const FeaturesSection = () => {
         <section className='w-full pt-[15vh] pb-[12vh]'>
             <div ref={mainRef}>
                 <div className=" text-center m-16">
-                    <h2 className="text-[10vh] font-bold">
+                    <h1 className="text-[6vw] font-bold">
                         <span  className="">Power Your </span>
                         <span style={{ color: Colors.magenta }}>Imagination</span>
-                    </h2>
+                    </h1>
                     <p className="text-white/90 font-bold text-[3vh] max-w-2xl mx-auto">
                         From tiny LED bulbs to complete electrical installations — 
                         we've got everything to electrify your vision.
@@ -120,13 +119,11 @@ const FeaturesSection = () => {
                     <div ref={cardRef} className="flex gap-16 w-max mx-[26vw]">
                     {
                         features.map(
-                            (feature, i) => <div id='card'>
-                                <Card
-                                    key={i}
-                                    feature={feature}
-                                    index={i}
-                                /> 
-                            </div>
+                            (feature, i) => <Card
+                                key={i}
+                                feature={feature}
+                                index={i}
+                            /> 
                         )
                     }
                     </div>
