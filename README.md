@@ -1,4 +1,5 @@
 # Mane Electricals
+This is the landing page for Mane Electricals
 
 ## Project Structure
 
