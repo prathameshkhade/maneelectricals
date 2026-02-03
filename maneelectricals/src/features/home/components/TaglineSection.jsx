@@ -17,7 +17,7 @@ const TaglineSection = () => {
                 trigger: taglinesRef.current,
                 start: 'center center',
                 end: 'bottom bottom',
-                pin: true,s
+                pin: true,
             }}
         );
 
